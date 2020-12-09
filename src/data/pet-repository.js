@@ -22,8 +22,14 @@ export const getPet = async (id) => {
 }
 
 export const createPet = async (pet) => {
-  // TODO: Implement createPet
-  throw Error("createPet is not implemented!")
+  const response = await Axios.post(`http://localhost:8080/api/pets`, pet);
+
+  if (response.status !== 201) {
+    console.error("Could not create pet due to unkown error")
+    return false
+  }
+
+  return true
 }
 
 export const updatePet = async (pet) => {
