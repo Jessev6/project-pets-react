@@ -14,4 +14,9 @@
 6. Implement updatePet in pet repository
 7. Implement deletePet in pet repository
 
+### Dockerizing the application for production
 
+1. Create Dockerfile and .dockerignore
+2. Create seperate config for prod
+
+#### That's All!
