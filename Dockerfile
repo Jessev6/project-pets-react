@@ -8,6 +8,8 @@ RUN npm install --only=prod
 
 ADD src /app/src
 
+# Overwrite config for prod
+ADD src/conf/overlays/config.prod.js /app/src/conf/config.js
 RUN npm run build
 
 FROM nginx:alpine as final
