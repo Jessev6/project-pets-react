@@ -2,8 +2,13 @@ import "axios";
 import Axios from "axios";
 
 export const getAllPets = async () => {
-  // TODO: Implement getAllPets
-  throw Error("getAllPets is not implemented!")
+  const response = await Axios.get(`http://localhost:8080/api/pets`);
+
+  if (response.status !== 200) {
+    throw Error("Could not fetch pets from 'http://localhost:8080/api/pets'.")
+  }
+
+  return response.data
 }
 
 export const getPet = async (id) => {
