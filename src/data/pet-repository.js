@@ -44,6 +44,12 @@ export const updatePet = async (pet) => {
 }
 
 export const deletePet = async (id) => {
-  // TODO: Implement deletePet
-  throw Error("createPet is not implemented!")
+  const response = await Axios.delete(`http://localhost:8080/api/pets/${id}`)
+
+  if (response.status !== 204) {
+    console.error("Could not delete pet due to unkown error")
+    return false
+  }
+
+  return true
 }
