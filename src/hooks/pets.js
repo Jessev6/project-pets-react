@@ -3,10 +3,11 @@ import { getAllPets } from '../data/pet-repository';
 
 
 export const usePets = () => {
-  // TODO: Implement usePets hook
+  const [pets, setPets] = useState(null);
 
-  return { pets: null, loadPets: () => {
-      throw Error("usePets hook not implemented!") 
-    }
+  const loadPets = async () => {
+    setPets(await getAllPets())
   }
+
+  return { pets, loadPets }
 }
