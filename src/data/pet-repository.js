@@ -12,8 +12,13 @@ export const getAllPets = async () => {
 }
 
 export const getPet = async (id) => {
-  // TODO: Implement getPet
-  throw Error("getPet is not implemented!")
+  const response = await Axios.get(`http://localhost:8080/api/pets/${id}`);
+
+  if (response.status !== 200) {
+    throw Error("Could not fetch pets from 'http://localhost:8080/api/pets'.")
+  }
+
+  return response.data
 }
 
 export const createPet = async (pet) => {
