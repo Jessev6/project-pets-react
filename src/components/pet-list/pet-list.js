@@ -17,9 +17,9 @@ const PetList = (props) => {
   const classes = useStyles();
   const { pets, loadPets } = usePets();
 
-  // TODO: Implement effect to poll for pets every 100ms
-  
-
+  useEffect(() => {
+    setInterval(() => loadPets(), 100);
+  }, []);
 
   if (!pets) {
     return (
